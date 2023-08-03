@@ -1,0 +1,13 @@
+sample,organism,condition,replicate,sample_type,kit,raw_data_dir
+135,human,recurrent,1,total_RNA,DRS002,
+171,human,recurrent,1,total_RNA,DRS002,
+243,human,recurrent,1,total_RNA,DRS002,
+254,human,recurrent,1,total_RNA,DRS002,
+260,human,recurrent,1,total_RNA,DRS002,
+273,human,nonrecurrent,1,total_RNA,DRS002,
+314,human,nonrecurrent,1,total_RNA,DRS002,
+318,human,nonrecurrent,1,total_RNA,DRS002,
+320,human,nonrecurrent,1,total_RNA,DRS002,
+329,human,recurrent,1,total_RNA,DRS002,
+382,human,nonrecurrent,1,total_RNA,DRS002,
+395,human,nonrecurrent,1,total_RNA,DRS002,

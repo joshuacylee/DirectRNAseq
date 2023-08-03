@@ -1,0 +1,90 @@
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# General parameters
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+threads: 20
+result_dir: "../results/"
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# Genome parameters
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+genome_index: "../../reference.mmi"
+
+annotation:
+  bed: "../../reference/annotation.bed"
+  gtf: "../../reference/annotation.gtf"
+
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# Sample parameters
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+sample_sheet: "../sample/sample_sheet.csv"
+
+# ont_info:
+
+kit: "PCS111"
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# Software parameters
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+# * * * * * Minimap
+
+minimap2_threads: 20
+
+minimap2_opts: ""
+
+maximum_secondary: 10
+
+secondary_score_ratio: 1.0
+
+min_mapping_qual: 10
+
+
+# * * * * * Feature counts
+
+featurecounts_opts: -s 1
+
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# Software parameters
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+# * * * * * Pychopper
+
+pychopper_threads: 20
+pychopper_method: "edlib"
+pychopper_other_params: ""
+
+
+# * * * * * Cutadapt (trimming)
+
+cutadapt_threads: 20
+cutadapt_five_end_trim_seq: "TTTVVVVTTVVVVTTVVVVTTVVVVTTTGGG"
+cutadapt_five_end_max_error: 0.05
+cutadapt_five_end_min_overlap: 25
+cutadapt_three_end_trim_seq: "A{1000}"
+cutadapt_three_end_max_error: 0.08
+cutadapt_three_end_min_overlap: 5
+cutadapt_min_length: 20
+
+
+# * * * * * Minimap
+
+minimap2_threads: 20
+
+minimap2_opts: ""
+
+maximum_secondary: 10 # 100
+
+secondary_score_ratio: 1.0
+
+min_mapping_qual: 10
+
+
+# * * * * * Feature counts
+
+featurecounts_opts: -s 1

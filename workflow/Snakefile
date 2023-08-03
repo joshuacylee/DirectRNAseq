@@ -1,0 +1,54 @@
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# CONFIG
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+import pandas as pd
+
+configfile: "../config/config.yml"
+workdir: config["result_dir"]
+
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# PREPARE, MAP AND COUNT ONT DATA
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+# * * * * * Define samples to use and concatenate into one fastq per sample
+
+include: "rules/01_make_sample_fastq.smk"
+
+samples = pd.read_csv(config["sample_sheet"], dtype = str).set_index(["sample"], drop = False)
+
+# samples = samples.iloc[2:3]
+# print(samples)
+
+# * * * * * Map and read count
+
+include: "rules/02_map_and_count_genome.smk"
+
+
+# * * * * * Data prep
+
+rule target_prepare_samples:
+    input:
+        fastq = expand(
+            "data/{sample}.fastq.gz",
+            sample = samples["sample"]
+        )
+
+
+# * * * * * Mapping and counting
+
+rule target_map:
+    input:
+        alns = expand(
+            "mapping/all/{sample}.sorted.bam",
+            sample = samples["sample"]
+        ),
+        qual = expand(
+            "mapping/qual/{sample}.sorted.bam",
+            sample = samples["sample"]
+        ),
+        counts = expand(
+            "counting/{sample}.tsv",
+            sample = samples["sample"]
+        )
+

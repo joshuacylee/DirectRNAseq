@@ -1,0 +1,15 @@
+name: drs
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - seqkit=2.2.0
+    - minimap2=2.24
+    - pychopper=2.7
+    - cutadapt=3.4
+    - subread=2.0.0
+    - samtools=1.16
+    - csvtk=0.24.0
+    - pip
+    - pip:
+        - catfishq=1.4.0
