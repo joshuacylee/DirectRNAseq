@@ -9,7 +9,7 @@ rule cat_fastq:
     output:
         "data/{sample}.fastq.gz"
     conda:
-        "../envs/cdna_mapping.yml"
+        "../envs/drs_mapping.yml"
     shell:
         """
         catfishq -r {input} | gzip > {output}
